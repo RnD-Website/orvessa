@@ -1,0 +1,58 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; background: var(--espresso); }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+body {
+  font-family: var(--sans);
+  font-size: var(--fs-base);
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--espresso);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+img, video, canvas, svg { display: block; max-width: 100%; }
+img { object-fit: cover; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; text-transform: inherit; letter-spacing: inherit; }
+input, select, textarea { font: inherit; color: inherit; }
+::selection { background: var(--gold); color: var(--black); }
+
+/* Hide native cursor on fine pointers — CustomCursor takes over */
+@media (hover: hover) and (pointer: fine) {
+  html.has-cursor, html.has-cursor * { cursor: none !important; }
+}
+
+/* Accessibility */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+:focus-visible { outline: 1px solid var(--gold); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Film grain shared by cinematic scenes */
+.grain::after {
+  content: '';
+  position: absolute; inset: -50%;
+  pointer-events: none;
+  opacity: 0.14;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 1.2s steps(6) infinite;
+}
+@keyframes grain {
+  0% { transform: translate(0, 0); } 20% { transform: translate(-3%, 2%); } 40% { transform: translate(2%, -3%); }
+  60% { transform: translate(-2%, -1%); } 80% { transform: translate(3%, 3%); } 100% { transform: translate(0, 0); }
+}
+
+/* Layout helpers */
+.wrap { padding-inline: var(--gutter); }
+.ivory { background: var(--ivory); color: var(--ink-dark); }
+.sand { background: var(--sand); color: var(--ink-dark); }
+
+/* Image reveal mask (driven by GSAP; this is the resting state before JS) */
+.mask { overflow: hidden; position: relative; }
+.mask > img, .mask > picture img { width: 100%; height: 100%; }
+input[type=search]::-webkit-search-cancel-button { -webkit-appearance: none; }

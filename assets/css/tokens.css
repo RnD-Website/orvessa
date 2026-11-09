@@ -1,0 +1,55 @@
+/* ORVESSA design tokens — one restrained system, used everywhere */
+:root {
+  /* Brand palette */
+  --black: #101010;
+  --gold: #c6a46a;
+  --gold-deep: #a8874f;
+  --ivory: #f5f1e9;
+  --beige: #d8cbb9;
+  --gray: #85817b;
+
+  /* Maison (warm sepia) surfaces derived from the palette */
+  --espresso: #1a130d;
+  --umber: #2a2016;
+  --sand: #e9e0d1;
+  --ink: #f2ece1;            /* light text over imagery */
+  --ink-dark: #1b1611;       /* dark text on ivory */
+  --line: rgba(242, 236, 225, 0.22);
+  --line-dark: rgba(27, 22, 17, 0.14);
+
+  /* Type */
+  --serif: 'Instrument Serif', 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Manrope', 'Inter', system-ui, sans-serif;
+
+  /* Fluid scale */
+  --fs-xs: 11px;
+  --fs-sm: 13px;
+  --fs-base: 15px;
+  --fs-lg: clamp(17px, 1.3vw, 20px);
+  --fs-h4: clamp(26px, 2.6vw, 40px);
+  --fs-h3: clamp(36px, 4.4vw, 68px);
+  --fs-h2: clamp(52px, 8vw, 132px);
+  --fs-h1: clamp(64px, 12vw, 210px);
+
+  /* Spacing & layout */
+  --gutter: clamp(16px, 3.6vw, 60px);
+  --section: clamp(96px, 14vw, 220px);
+  --nav-h: 96px;
+
+  /* Motion — one easing family, used consistently */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 0.35s;
+  --dur: 0.7s;
+  --dur-slow: 1.2s;
+
+  --z-cursor: 100;
+  --z-curtain: 90;
+  --z-intro: 80;
+  --z-drawer: 60;
+  --z-menu: 50;
+  --z-nav: 40;
+}
+@media (max-width: 760px) {
+  :root { --nav-h: 72px; }
+}

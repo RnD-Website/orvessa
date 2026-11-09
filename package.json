@@ -1,0 +1,28 @@
+{
+  "name": "orvessa",
+  "version": "1.0.0",
+  "description": "ORVESSA — cinematic luxury jewelry e-commerce experience (Nuxt 3 + GSAP + Three.js)",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "render": "node tools/render/render.mjs"
+  },
+  "dependencies": {
+    "@fontsource/instrument-serif": "^5.3.0",
+    "@fontsource/manrope": "^5.3.0",
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.13",
+    "nuxt": "^3.13.2",
+    "three": "^0.169.0",
+    "vue": "^3.5.45",
+    "vue-router": "^4.6.4"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.5"
+  },
+  "private": true,
+  "type": "module"
+}
